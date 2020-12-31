@@ -12,55 +12,6 @@ use App\Models\SocialIdentity;
 
 class LoginController extends Controller
 {
-    public function redirectToProvider($provider)
-    {
-        return Socialite::driver($provider)->redirect();
-    }
-
-    public function handleProviderCallback($provider)
-    {
-        try {
-            $user = Socialite::driver($provider)->stateless()->user();
-        } catch (Exception $e) {
-            return redirect('/login');
-        }
-
-        $authUser = $this->findOrCreateUser($user, $provider);
-
-//        dd($authUser);
-
-        Auth::login($authUser, true);
-        return redirect($this->redirectTo);
-    }
-
-    public function findOrCreateUser($providerUser, $provider)
-    {
-//        dd('here');
-        $account = SocialIdentity::where('Provider_name', $provider)
-            ->where('Provider_id', $providerUser->getId())
-            ->first();
-
-        if ($account) {
-            return $account->user;
-        } else {
-            $user = User::where('Email', $providerUser->getEmail())->first();
-
-            if (!$user) {
-                $user = User::create([
-                    'email' => $providerUser->getEmail(),
-                    'name' => $providerUser->getName(),
-                ]);
-            }
-
-            $user->identities()->create([
-                'provider_id' => $providerUser->getId(),
-                'provider_name' => $provider,
-            ]);
-
-            return $user;
-        }
-    }
-
     /*
     |--------------------------------------------------------------------------
     | Login Controller
@@ -89,5 +40,51 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    public function redirectToProvider($provider)
+    {
+        return Socialite::driver($provider)->redirect();
+    }
+
+    public function handleProviderCallback($provider)
+    {
+        try {
+            $user = Socialite::driver($provider)->stateless()->user();
+        } catch (Exception $e) {
+            return redirect('/login');
+        }
+
+        $authUser = $this->findOrCreateUser($user, $provider);
+
+        Auth::login($authUser, true);
+        return redirect($this->redirectTo);
+    }
+
+    public function findOrCreateUser($providerUser, $provider)
+    {
+        $account = SocialIdentity::where('provider_name', $provider)
+            ->where('provider_id', $providerUser->getId())
+            ->first();
+
+        if ($account) {
+            return $account->user;
+        } else {
+            $user = User::where('email', $providerUser->getEmail())->first();
+
+            if (!$user) {
+                $user = User::create([
+                    'email' => $providerUser->getEmail(),
+                    'name' => $providerUser->getName(),
+                ]);
+            }
+
+            $user->identities()->create([
+                'provider_id' => $providerUser->getId(),
+                'provider_name' => $provider,
+            ]);
+
+            return $user;
+        }
     }
 }
