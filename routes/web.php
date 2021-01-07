@@ -27,3 +27,8 @@ Route::get('login/{provider}', [App\Http\Controllers\Auth\LoginController::class
     ->where(['provider' => '[a-z]+']);
 Route::get('login/{provider}/callback', [App\Http\Controllers\Auth\LoginController::class, 'handleProviderCallback'])
     ->where(['provider' => '[a-z]+']);
+
+Route::get('trix/', function () {
+    return view('trix.index');
+});
+Route::post('trix/', [App\Http\Controllers\PostController::class, 'store'])->name('post.store');
