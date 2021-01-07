@@ -7,7 +7,7 @@
         }
 
         .custom-modal {
-            position: fixed;
+            position: absolute;
             /* Stay in place */
             z-index: 1000;
             /* Sit on top */
@@ -77,10 +77,10 @@
                 <input id="submit" class="btn btn-info mt-2" type="submit">
             </div>
         </form>
-        <div class="custom-modal">
+        <div class="custom-modal" id="custom-modal" style="display: none">
             <table id="myTable">
                 <tr>
-                    <td><a onclick="imHere(this)">bold</a></td>
+                    <td id="bold"><a onclick="imHere(this)">bold</a></td>
                 </tr>
                 <tr>
                     <td><a onclick="imHere(this)">italic</a></td>
@@ -115,6 +115,7 @@
 
     <script>
         let element = document.querySelector('trix-editor');
+        let pop_up = document.getElementById("custom-modal");
 
         let new_line = true;
         let previous_key = null;
@@ -135,6 +136,8 @@
         let imHere = (al) => {
             resetTable();
 
+            pop_up.style.display = "none";
+
             let text_content = element.innerText;
             let last_index_slash = text_content.lastIndexOf("/");
             let last_index_carriage = text_content.lastIndexOf("\n");
@@ -143,7 +146,7 @@
             if (element.editor.attributeIsActive(al.text)) {
                 element.editor.setSelectedRange([last_index_slash, text_content.length + 1]);
                 element.editor.deleteInDirection("backward");
-                
+
                 element.editor.deactivateAttribute(al.text);
             }
             // if attribute is not active
@@ -180,12 +183,20 @@
         }
 
         let runScript = () => {
+            // popup absolute view
+            let carret_range = element.editor.getClientRectAtPosition(element.editor.getSelectedRange()[0]);
+            console.log(carret_range.left, carret_range.top);
+            pop_up.style.left = (10 + carret_range.left) + "px";
+            pop_up.style.top = (10 + carret_range.top) + "px";
+            pop_up.style.display = "";
             console.log('triggered');
         }
 
         element.addEventListener('keyup', (event) => {
 
             //13 enter, 32 space, 191 slash, 8 backspace
+
+            // console.log(element.editor.getClientRectAtPosition(1));
 
             let value = element.textContent;
             previous_key = present_key;
@@ -194,7 +205,11 @@
             // if / is triggered
             if (trigger) {
                 let last_index = element.innerText.lastIndexOf('/');
-                // console.log(last_index);
+                // popup absolute view
+                let carret_range = element.editor.getClientRectAtPosition(element.editor.getSelectedRange()[0]);
+                console.log(carret_range.left, carret_range.top);
+                pop_up.style.left = (10 + carret_range.left) + "px";
+                pop_up.style.top = (10 + carret_range.top) + "px";
                 myFunction(element.innerText.slice(last_index + 1));
             }
             // if previous key is enter or space and present key is /
@@ -214,12 +229,14 @@
                 }
             }
             // if present key is enter or space
-            else if (present_key === 13 || present_key === 32) {
+            else if (present_key === 13 || present_key === 32 || present_key === 27) {
                 resetTable();
+                pop_up.style.display = "none";
                 trigger = false;
             }
             // if document is empty
             if (value.length === 0) {
+                pop_up.style.display = "none";
                 previous_key = null;
                 present_key = null;
             }
