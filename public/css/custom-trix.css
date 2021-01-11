@@ -1,0 +1,60 @@
+* {
+    box-sizing: border-box;
+}
+
+.custom-modal {
+    position: fixed;
+    /* Stay in place */
+    z-index: 1000;
+    /* Sit on top */
+    /*padding-top: 100px;*/
+    /* Location of the box */
+    left: 50%;
+    top: 30%;
+    width: 200px;
+    /* Full width */
+    height: 300px;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(247, 247, 247);
+    /* Fallback color */
+    /*background-color: rgba(255, 255, 255, 0.4);*/
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+}
+
+#myInput {
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    width: 100%;
+    font-size: 16px;
+    padding: 12px 20px 12px 40px;
+    border: 1px solid #ddd;
+    margin-bottom: 12px;
+}
+
+#myTable {
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid #ddd;
+    font-size: 18px;
+}
+
+#myTable th,
+#myTable td {
+    text-align: left;
+    padding: 12px;
+}
+
+#myTable td a {
+    display: block;
+}
+
+#myTable tr {
+    border-bottom: 1px solid #ddd;
+}
+
+#myTable tr.header,
+#myTable tr:hover {
+    background-color: #f1f1f1;
+}
