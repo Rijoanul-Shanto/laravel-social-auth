@@ -496,9 +496,13 @@ trix-editor .attachment__metadata .attachment__size {
 }
 
 .trix-content .attachment {
-    display: inline-block;
+    display: flex;
+    padding-top: 10px;
+    padding-bottom: 5px;
     position: relative;
     max-width: 100%;
+    justify-content: center;
+    align-items: center;
 }
 
 .trix-content .attachment a {

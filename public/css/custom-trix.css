@@ -11,13 +11,13 @@
     /* Location of the box */
     left: 50%;
     top: 30%;
-    width: 200px;
+    width: 300px;
     /* Full width */
-    height: 300px;
+    height: 350px;
     /* Full height */
-    overflow: auto;
+    overflow-y: scroll;
     /* Enable scroll if needed */
-    background-color: rgb(247, 247, 247);
+    background-color: #fff;
     /* Fallback color */
     /*background-color: rgba(255, 255, 255, 0.4);*/
     box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
@@ -58,3 +58,31 @@
 #myTable tr:hover {
     background-color: #f1f1f1;
 }
+
+.trix_subsection{
+    color: #8594aa;
+    font-size: .9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: .75rem .75rem .3rem;
+}
+
+.icon-preview{
+    flex: 1 1;
+    border: 1px solid #ebeced;
+    border-radius: .4rem;
+    height: 50px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    max-width: 60px;
+}
+.dropdown-subtitle{
+    color: #8e9caf;
+    font-size: .9rem;
+}
+.dropdown-title{
+    color: #1f3247;
+    font-weight: 500
+}
+

@@ -13,37 +13,119 @@
                 <input id="submit" class="btn btn-info mt-2" type="submit">
             </div>
         </form>
-        <div class="custom-modal" id="custom-modal" style="display: none">
-            <ul id="itemList">
+        <div class="custom-modal" id="custom-modal" style="display: none; border: 1px solid #ededed; border-radius: .4rem;">
+            <ul id="itemList" style="list-style-type: none; padding-left: 0">
                 {{--                <li tabindex="-1" id="bold" class="not-selected"><a onclick="toggleAttribute(this.parentNode)">bold</a></li>--}}
                 {{--                <li tabindex="-1" id="italic" class="not-selected"><a onclick="toggleAttribute(this.parentNode)">italic</a></li>--}}
                 {{--                <li tabindex="-1" id="strike" class="not-selected"><a onclick="toggleAttribute(this.parentNode)">strike</a></li>--}}
+                <div class="trix_subsection">Basic</div>
                 <li tabindex="-1" id="href" class="not-selected">
-                    <a onclick="toggleTrixAttribute(this.parentNode)">href</a>
+                    <div style="padding: .75rem; margin-bottom: 0; display: inline-flex; width: 100%;">
+                        <div class="icon-preview">
+                            <svg width="20" height="26" viewBox="0 0 20 26" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 0H6.41485V1.06838H5.42198C4.805 1.06838 4.30484 1.56854 4.30484 2.18551V6.42305H10.7187V2.18551C10.7187 1.56854 10.2185 1.06838 9.60157 1.06838H8.58509V0H15V1.06838H13.9945C13.3775 1.06838 12.8774 1.56854 12.8774 2.18551V12.8037C12.8774 13.4206 13.3775 13.9208 13.9945 13.9208H15V15H8.58509V13.9208H9.60157C10.2185 13.9208 10.7187 13.4206 10.7187 12.8037V7.5H4.30484V12.8037C4.30484 13.4206 4.805 13.9208 5.42198 13.9208H6.41485V15H0V13.9208H1.031C1.64798 13.9208 2.14814 13.4206 2.14814 12.8037V2.18552C2.14814 1.56854 1.64798 1.06838 1.031 1.06838H0V0ZM19.1 19.5C19.5971 19.5 20 19.9029 20 20.4C20 20.8971 19.5971 21.3 19.1 21.3H0.899999C0.402943 21.3 0 20.8971 0 20.4C0 19.9029 0.402944 19.5 0.9 19.5H19.1ZM17 24.9C17 24.4029 16.5971 24 16.1 24H0.9C0.402944 24 0 24.4029 0 24.9C0 25.3971 0.402943 25.8 0.899999 25.8H16.1C16.5971 25.8 17 25.3971 17 24.9Z" fill="#8D9CAE"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M16 14.1774H16.37C16.6351 14.1774 16.85 13.9625 16.85 13.6974V10.835C16.85 10.5699 16.6351 10.355 16.37 10.355H16.0171V9.5L18.185 9.5V13.6974C18.185 13.9625 18.3999 14.1774 18.665 14.1774H19V15H16V14.1774Z" fill="#8D9CAE"></path></svg>
+                        </div>
+                        <div style="flex: 3 1;margin-left: .85rem;">
+                            <div class="dropdown-title">href</div>
+                            <div class="dropdown-subtitle">Medium section heading</div>
+                        </div>
+                    </div>
+                    <a onclick="toggleTrixAttribute(this.parentNode)"></a>
                 </li>
                 <li tabindex="-1" id="embed" class="not-selected">
-                    <a onclick="toggleTrixAttribute(this.parentNode)">embed</a>
+                    <div style="padding: .75rem; margin-bottom: 0; display: inline-flex; width: 100%;">
+                        <div class="icon-preview">
+                            <svg width="20" height="26" viewBox="0 0 20 26" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 0H6.41485V1.06838H5.42198C4.805 1.06838 4.30484 1.56854 4.30484 2.18551V6.42305H10.7187V2.18551C10.7187 1.56854 10.2185 1.06838 9.60157 1.06838H8.58509V0H15V1.06838H13.9945C13.3775 1.06838 12.8774 1.56854 12.8774 2.18551V12.8037C12.8774 13.4206 13.3775 13.9208 13.9945 13.9208H15V15H8.58509V13.9208H9.60157C10.2185 13.9208 10.7187 13.4206 10.7187 12.8037V7.5H4.30484V12.8037C4.30484 13.4206 4.805 13.9208 5.42198 13.9208H6.41485V15H0V13.9208H1.031C1.64798 13.9208 2.14814 13.4206 2.14814 12.8037V2.18552C2.14814 1.56854 1.64798 1.06838 1.031 1.06838H0V0ZM19.1 19.5C19.5971 19.5 20 19.9029 20 20.4C20 20.8971 19.5971 21.3 19.1 21.3H0.899999C0.402943 21.3 0 20.8971 0 20.4C0 19.9029 0.402944 19.5 0.9 19.5H19.1ZM17 24.9C17 24.4029 16.5971 24 16.1 24H0.9C0.402944 24 0 24.4029 0 24.9C0 25.3971 0.402943 25.8 0.899999 25.8H16.1C16.5971 25.8 17 25.3971 17 24.9Z" fill="#8D9CAE"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M16 14.1774H16.37C16.6351 14.1774 16.85 13.9625 16.85 13.6974V10.835C16.85 10.5699 16.6351 10.355 16.37 10.355H16.0171V9.5L18.185 9.5V13.6974C18.185 13.9625 18.3999 14.1774 18.665 14.1774H19V15H16V14.1774Z" fill="#8D9CAE"></path></svg>
+                        </div>
+                        <div style="flex: 3 1;margin-left: .85rem;">
+                            <div class="dropdown-title">embed</div>
+                            <div class="dropdown-subtitle">Medium section heading</div>
+                        </div>
+                    </div>
+                    <a onclick="toggleTrixAttribute(this.parentNode)"></a>
                 </li>
                 <li tabindex="-1" id="heading1" class="not-selected">
-                    <a onclick="toggleTrixAttribute(this.parentNode)">heading1</a>
+                    <div style="padding: .75rem; margin-bottom: 0; display: inline-flex; width: 100%;">
+                        <div class="icon-preview">
+                            <svg width="20" height="26" viewBox="0 0 20 26" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 0H6.41485V1.06838H5.42198C4.805 1.06838 4.30484 1.56854 4.30484 2.18551V6.42305H10.7187V2.18551C10.7187 1.56854 10.2185 1.06838 9.60157 1.06838H8.58509V0H15V1.06838H13.9945C13.3775 1.06838 12.8774 1.56854 12.8774 2.18551V12.8037C12.8774 13.4206 13.3775 13.9208 13.9945 13.9208H15V15H8.58509V13.9208H9.60157C10.2185 13.9208 10.7187 13.4206 10.7187 12.8037V7.5H4.30484V12.8037C4.30484 13.4206 4.805 13.9208 5.42198 13.9208H6.41485V15H0V13.9208H1.031C1.64798 13.9208 2.14814 13.4206 2.14814 12.8037V2.18552C2.14814 1.56854 1.64798 1.06838 1.031 1.06838H0V0ZM19.1 19.5C19.5971 19.5 20 19.9029 20 20.4C20 20.8971 19.5971 21.3 19.1 21.3H0.899999C0.402943 21.3 0 20.8971 0 20.4C0 19.9029 0.402944 19.5 0.9 19.5H19.1ZM17 24.9C17 24.4029 16.5971 24 16.1 24H0.9C0.402944 24 0 24.4029 0 24.9C0 25.3971 0.402943 25.8 0.899999 25.8H16.1C16.5971 25.8 17 25.3971 17 24.9Z" fill="#8D9CAE"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M16 14.1774H16.37C16.6351 14.1774 16.85 13.9625 16.85 13.6974V10.835C16.85 10.5699 16.6351 10.355 16.37 10.355H16.0171V9.5L18.185 9.5V13.6974C18.185 13.9625 18.3999 14.1774 18.665 14.1774H19V15H16V14.1774Z" fill="#8D9CAE"></path></svg>
+                        </div>
+                        <div style="flex: 3 1;margin-left: .85rem;">
+                            <div class="dropdown-title">heading1</div>
+                            <div class="dropdown-subtitle">Medium section heading</div>
+                        </div>
+                    </div>
+                    <a onclick="toggleTrixAttribute(this.parentNode)"></a>
                 </li>
                 <li tabindex="-1" id="quote" class="not-selected">
-                    <a onclick="toggleTrixAttribute(this.parentNode)">quote</a>
+                    <div style="padding: .75rem; margin-bottom: 0; display: inline-flex; width: 100%;">
+                        <div class="icon-preview">
+                            <svg width="20" height="26" viewBox="0 0 20 26" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 0H6.41485V1.06838H5.42198C4.805 1.06838 4.30484 1.56854 4.30484 2.18551V6.42305H10.7187V2.18551C10.7187 1.56854 10.2185 1.06838 9.60157 1.06838H8.58509V0H15V1.06838H13.9945C13.3775 1.06838 12.8774 1.56854 12.8774 2.18551V12.8037C12.8774 13.4206 13.3775 13.9208 13.9945 13.9208H15V15H8.58509V13.9208H9.60157C10.2185 13.9208 10.7187 13.4206 10.7187 12.8037V7.5H4.30484V12.8037C4.30484 13.4206 4.805 13.9208 5.42198 13.9208H6.41485V15H0V13.9208H1.031C1.64798 13.9208 2.14814 13.4206 2.14814 12.8037V2.18552C2.14814 1.56854 1.64798 1.06838 1.031 1.06838H0V0ZM19.1 19.5C19.5971 19.5 20 19.9029 20 20.4C20 20.8971 19.5971 21.3 19.1 21.3H0.899999C0.402943 21.3 0 20.8971 0 20.4C0 19.9029 0.402944 19.5 0.9 19.5H19.1ZM17 24.9C17 24.4029 16.5971 24 16.1 24H0.9C0.402944 24 0 24.4029 0 24.9C0 25.3971 0.402943 25.8 0.899999 25.8H16.1C16.5971 25.8 17 25.3971 17 24.9Z" fill="#8D9CAE"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M16 14.1774H16.37C16.6351 14.1774 16.85 13.9625 16.85 13.6974V10.835C16.85 10.5699 16.6351 10.355 16.37 10.355H16.0171V9.5L18.185 9.5V13.6974C18.185 13.9625 18.3999 14.1774 18.665 14.1774H19V15H16V14.1774Z" fill="#8D9CAE"></path></svg>
+                        </div>
+                        <div style="flex: 3 1;margin-left: .85rem;">
+                            <div class="dropdown-title">quote</div>
+                            <div class="dropdown-subtitle">Medium section heading</div>
+                        </div>
+                    </div>
+                    <a onclick="toggleTrixAttribute(this.parentNode)"></a>
                 </li>
                 <li tabindex="-1" id="code" class="not-selected">
-                    <a onclick="toggleTrixAttribute(this.parentNode)">code</a>
+                    <div style="padding: .75rem; margin-bottom: 0; display: inline-flex; width: 100%;">
+                        <div class="icon-preview">
+                            <svg width="20" height="26" viewBox="0 0 20 26" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 0H6.41485V1.06838H5.42198C4.805 1.06838 4.30484 1.56854 4.30484 2.18551V6.42305H10.7187V2.18551C10.7187 1.56854 10.2185 1.06838 9.60157 1.06838H8.58509V0H15V1.06838H13.9945C13.3775 1.06838 12.8774 1.56854 12.8774 2.18551V12.8037C12.8774 13.4206 13.3775 13.9208 13.9945 13.9208H15V15H8.58509V13.9208H9.60157C10.2185 13.9208 10.7187 13.4206 10.7187 12.8037V7.5H4.30484V12.8037C4.30484 13.4206 4.805 13.9208 5.42198 13.9208H6.41485V15H0V13.9208H1.031C1.64798 13.9208 2.14814 13.4206 2.14814 12.8037V2.18552C2.14814 1.56854 1.64798 1.06838 1.031 1.06838H0V0ZM19.1 19.5C19.5971 19.5 20 19.9029 20 20.4C20 20.8971 19.5971 21.3 19.1 21.3H0.899999C0.402943 21.3 0 20.8971 0 20.4C0 19.9029 0.402944 19.5 0.9 19.5H19.1ZM17 24.9C17 24.4029 16.5971 24 16.1 24H0.9C0.402944 24 0 24.4029 0 24.9C0 25.3971 0.402943 25.8 0.899999 25.8H16.1C16.5971 25.8 17 25.3971 17 24.9Z" fill="#8D9CAE"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M16 14.1774H16.37C16.6351 14.1774 16.85 13.9625 16.85 13.6974V10.835C16.85 10.5699 16.6351 10.355 16.37 10.355H16.0171V9.5L18.185 9.5V13.6974C18.185 13.9625 18.3999 14.1774 18.665 14.1774H19V15H16V14.1774Z" fill="#8D9CAE"></path></svg>
+                        </div>
+                        <div style="flex: 3 1;margin-left: .85rem;">
+                            <div class="dropdown-title">code</div>
+                            <div class="dropdown-subtitle">Medium section heading</div>
+                        </div>
+                    </div>
+                    <a onclick="toggleTrixAttribute(this.parentNode)"></a>
                 </li>
                 <li tabindex="-1" id="bullet" class="not-selected">
-                    <a onclick="toggleTrixAttribute(this.parentNode)">bullet</a>
+                    <div style="padding: .75rem; margin-bottom: 0; display: inline-flex; width: 100%;">
+                        <div class="icon-preview">
+                            <svg width="20" height="26" viewBox="0 0 20 26" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 0H6.41485V1.06838H5.42198C4.805 1.06838 4.30484 1.56854 4.30484 2.18551V6.42305H10.7187V2.18551C10.7187 1.56854 10.2185 1.06838 9.60157 1.06838H8.58509V0H15V1.06838H13.9945C13.3775 1.06838 12.8774 1.56854 12.8774 2.18551V12.8037C12.8774 13.4206 13.3775 13.9208 13.9945 13.9208H15V15H8.58509V13.9208H9.60157C10.2185 13.9208 10.7187 13.4206 10.7187 12.8037V7.5H4.30484V12.8037C4.30484 13.4206 4.805 13.9208 5.42198 13.9208H6.41485V15H0V13.9208H1.031C1.64798 13.9208 2.14814 13.4206 2.14814 12.8037V2.18552C2.14814 1.56854 1.64798 1.06838 1.031 1.06838H0V0ZM19.1 19.5C19.5971 19.5 20 19.9029 20 20.4C20 20.8971 19.5971 21.3 19.1 21.3H0.899999C0.402943 21.3 0 20.8971 0 20.4C0 19.9029 0.402944 19.5 0.9 19.5H19.1ZM17 24.9C17 24.4029 16.5971 24 16.1 24H0.9C0.402944 24 0 24.4029 0 24.9C0 25.3971 0.402943 25.8 0.899999 25.8H16.1C16.5971 25.8 17 25.3971 17 24.9Z" fill="#8D9CAE"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M16 14.1774H16.37C16.6351 14.1774 16.85 13.9625 16.85 13.6974V10.835C16.85 10.5699 16.6351 10.355 16.37 10.355H16.0171V9.5L18.185 9.5V13.6974C18.185 13.9625 18.3999 14.1774 18.665 14.1774H19V15H16V14.1774Z" fill="#8D9CAE"></path></svg>
+                        </div>
+                        <div style="flex: 3 1;margin-left: .85rem;">
+                            <div class="dropdown-title">bullet</div>
+                            <div class="dropdown-subtitle">Medium section heading</div>
+                        </div>
+                    </div>
+                    <a onclick="toggleTrixAttribute(this.parentNode)"></a>
                 </li>
                 <li tabindex="-1" id="number" class="not-selected">
-                    <a onclick="toggleTrixAttribute(this.parentNode)">number</a>
+                    <div style="padding: .75rem; margin-bottom: 0; display: inline-flex; width: 100%;">
+                        <div class="icon-preview">
+                            <svg width="20" height="26" viewBox="0 0 20 26" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 0H6.41485V1.06838H5.42198C4.805 1.06838 4.30484 1.56854 4.30484 2.18551V6.42305H10.7187V2.18551C10.7187 1.56854 10.2185 1.06838 9.60157 1.06838H8.58509V0H15V1.06838H13.9945C13.3775 1.06838 12.8774 1.56854 12.8774 2.18551V12.8037C12.8774 13.4206 13.3775 13.9208 13.9945 13.9208H15V15H8.58509V13.9208H9.60157C10.2185 13.9208 10.7187 13.4206 10.7187 12.8037V7.5H4.30484V12.8037C4.30484 13.4206 4.805 13.9208 5.42198 13.9208H6.41485V15H0V13.9208H1.031C1.64798 13.9208 2.14814 13.4206 2.14814 12.8037V2.18552C2.14814 1.56854 1.64798 1.06838 1.031 1.06838H0V0ZM19.1 19.5C19.5971 19.5 20 19.9029 20 20.4C20 20.8971 19.5971 21.3 19.1 21.3H0.899999C0.402943 21.3 0 20.8971 0 20.4C0 19.9029 0.402944 19.5 0.9 19.5H19.1ZM17 24.9C17 24.4029 16.5971 24 16.1 24H0.9C0.402944 24 0 24.4029 0 24.9C0 25.3971 0.402943 25.8 0.899999 25.8H16.1C16.5971 25.8 17 25.3971 17 24.9Z" fill="#8D9CAE"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M16 14.1774H16.37C16.6351 14.1774 16.85 13.9625 16.85 13.6974V10.835C16.85 10.5699 16.6351 10.355 16.37 10.355H16.0171V9.5L18.185 9.5V13.6974C18.185 13.9625 18.3999 14.1774 18.665 14.1774H19V15H16V14.1774Z" fill="#8D9CAE"></path></svg>
+                        </div>
+                        <div style="flex: 3 1;margin-left: .85rem;">
+                            <div class="dropdown-title">number</div>
+                            <div class="dropdown-subtitle">Medium section heading</div>
+                        </div>
+                    </div>
+                    <a onclick="toggleTrixAttribute(this.parentNode)"></a>
                 </li>
                 <li tabindex="-1" id="heading2" class="not-selected">
-                    <a onclick="toggleTrixAttribute(this.parentNode)">attachFiles</a>
+                    <div style="padding: .75rem; margin-bottom: 0; display: inline-flex; width: 100%;">
+                        <div class="icon-preview">
+                            <svg width="20" height="26" viewBox="0 0 20 26" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 0H6.41485V1.06838H5.42198C4.805 1.06838 4.30484 1.56854 4.30484 2.18551V6.42305H10.7187V2.18551C10.7187 1.56854 10.2185 1.06838 9.60157 1.06838H8.58509V0H15V1.06838H13.9945C13.3775 1.06838 12.8774 1.56854 12.8774 2.18551V12.8037C12.8774 13.4206 13.3775 13.9208 13.9945 13.9208H15V15H8.58509V13.9208H9.60157C10.2185 13.9208 10.7187 13.4206 10.7187 12.8037V7.5H4.30484V12.8037C4.30484 13.4206 4.805 13.9208 5.42198 13.9208H6.41485V15H0V13.9208H1.031C1.64798 13.9208 2.14814 13.4206 2.14814 12.8037V2.18552C2.14814 1.56854 1.64798 1.06838 1.031 1.06838H0V0ZM19.1 19.5C19.5971 19.5 20 19.9029 20 20.4C20 20.8971 19.5971 21.3 19.1 21.3H0.899999C0.402943 21.3 0 20.8971 0 20.4C0 19.9029 0.402944 19.5 0.9 19.5H19.1ZM17 24.9C17 24.4029 16.5971 24 16.1 24H0.9C0.402944 24 0 24.4029 0 24.9C0 25.3971 0.402943 25.8 0.899999 25.8H16.1C16.5971 25.8 17 25.3971 17 24.9Z" fill="#8D9CAE"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M16 14.1774H16.37C16.6351 14.1774 16.85 13.9625 16.85 13.6974V10.835C16.85 10.5699 16.6351 10.355 16.37 10.355H16.0171V9.5L18.185 9.5V13.6974C18.185 13.9625 18.3999 14.1774 18.665 14.1774H19V15H16V14.1774Z" fill="#8D9CAE"></path></svg>
+                        </div>
+                        <div style="flex: 3 1;margin-left: .85rem;">
+                            <div class="dropdown-title">attachFiles</div>
+                            <div class="dropdown-subtitle">Medium section heading</div>
+                        </div>
+                    </div>
+                    <a onclick="toggleTrixAttribute(this.parentNode)"></a>
                 </li>
                 <li tabindex="-1" id="heading2" class="not-selected">
-                    <a onclick="toggleTrixAttribute(this.parentNode)">heading2</a>
+                    <div style="padding: .75rem; margin-bottom: 0; display: inline-flex; width: 100%;">
+                        <div class="icon-preview">
+                            <svg width="20" height="26" viewBox="0 0 20 26" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 0H6.41485V1.06838H5.42198C4.805 1.06838 4.30484 1.56854 4.30484 2.18551V6.42305H10.7187V2.18551C10.7187 1.56854 10.2185 1.06838 9.60157 1.06838H8.58509V0H15V1.06838H13.9945C13.3775 1.06838 12.8774 1.56854 12.8774 2.18551V12.8037C12.8774 13.4206 13.3775 13.9208 13.9945 13.9208H15V15H8.58509V13.9208H9.60157C10.2185 13.9208 10.7187 13.4206 10.7187 12.8037V7.5H4.30484V12.8037C4.30484 13.4206 4.805 13.9208 5.42198 13.9208H6.41485V15H0V13.9208H1.031C1.64798 13.9208 2.14814 13.4206 2.14814 12.8037V2.18552C2.14814 1.56854 1.64798 1.06838 1.031 1.06838H0V0ZM19.1 19.5C19.5971 19.5 20 19.9029 20 20.4C20 20.8971 19.5971 21.3 19.1 21.3H0.899999C0.402943 21.3 0 20.8971 0 20.4C0 19.9029 0.402944 19.5 0.9 19.5H19.1ZM17 24.9C17 24.4029 16.5971 24 16.1 24H0.9C0.402944 24 0 24.4029 0 24.9C0 25.3971 0.402943 25.8 0.899999 25.8H16.1C16.5971 25.8 17 25.3971 17 24.9Z" fill="#8D9CAE"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M16 14.1774H16.37C16.6351 14.1774 16.85 13.9625 16.85 13.6974V10.835C16.85 10.5699 16.6351 10.355 16.37 10.355H16.0171V9.5L18.185 9.5V13.6974C18.185 13.9625 18.3999 14.1774 18.665 14.1774H19V15H16V14.1774Z" fill="#8D9CAE"></path></svg>
+                        </div>
+                        <div style="flex: 3 1;margin-left: .85rem;">
+                            <div class="dropdown-title">heading2</div>
+                            <div class="dropdown-subtitle">Medium section heading</div>
+                        </div>
+                    </div>
+                    <a onclick="toggleTrixAttribute(this.parentNode)"></a>
                 </li>
             </ul>
         </div>
@@ -159,20 +241,30 @@
         let embedProcess = () => {
             let data = "";
             let embed_value = document.getElementById("embed-modal").getElementsByTagName("input");
-            console.log(embed_value[0].value);
+            // console.log(embed_value[0].value);
 
             element.focus();
 
             if (embed_value) {
                 let embed_modal = document.getElementById("embed-modal");
                 embed_modal.style.display = "none";
-                let embed_range = element.editor.getSelectedRange();
-                element.editor.setSelectedRange(embed_range);
-                let embed = '<iframe width="853" height="480" src="https://www.youtube.com/embed/GdOEQv-zQVw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
-                console.log(embed);
-                attachment = new Trix.Attachment({content: embed});
-                element.editor.insertAttachment(attachment)
-                // element.editor.activateAttribute("href", embed_value[0].value);
+                let regex_sld = RegExp('(?:[-a-zA-Z0-9@:%_\\+~.#=]{2,256}\\.)?([-a-zA-Z0-9@:%_\\+~#=]*)\\.[a-z]{2,6}\\b(?:[-a-zA-Z0-9@:%_\+.~#?&\\/\\/=]*)', 'i');
+                let regex_match = embed_value[0].value.toString();
+
+                let regex_res = regex_sld.exec(regex_match)[1];
+
+                if ("youtube" === regex_res) {
+                    let regex_id = RegExp('^.*(youtu.be\\/|v\\/|u\\/\\w\\/|embed\\/|watch\\?v=|\\&v=)([^#\\&\\?]*).*');
+                    const youtube_id = regex_id.exec(regex_match)[2];
+
+                    const iframe_markup = '<iframe width="560" height="340" frameborder="0" src="http://www.youtube.com/embed/' + youtube_id + '" allowfullscreen></iframe>';
+
+                    let embed_range = element.editor.getSelectedRange();
+                    element.editor.setSelectedRange(embed_range);
+
+                    let attachment = new Trix.Attachment({content: iframe_markup});
+                    element.editor.insertAttachment(attachment)
+                }
             }
         }
 
@@ -213,16 +305,17 @@
                 link_process.getElementsByTagName("input")[0].focus();
 
                 link_process.getElementsByTagName("input")[0].addEventListener("keyup", (event) => {
-                   event.keyCode === 13 ? linkProcess() : "" ;
+                    event.keyCode === 13 ? linkProcess() : "";
+                    27 === event.keyCode ? (link_process.style.display = "none", element.focus()) : "";
                 });
-            }
-            else if (list_element_type === "embed") {
+            } else if (list_element_type === "embed") {
                 let embed_process = document.getElementById("embed-modal");
                 embed_process.style.display = "block";
                 embed_process.getElementsByTagName("input")[0].focus();
 
                 embed_process.getElementsByTagName("input")[0].addEventListener("keyup", (event) => {
-                    event.keyCode === 13 ? embedProcess() : "" ;
+                    event.keyCode === 13 ? embedProcess() : "";
+                    27 === event.keyCode ? (embed_process.style.display = "none", element.focus()) : "";
                 });
             }
         }
@@ -369,6 +462,7 @@
             }
             // if present key is /
             else if (present_key === 191) {
+                console.log("pressed");
                 let element_string = element.innerText;
                 let last_index = element_string.lastIndexOf('\n');
                 let final_str = element_string.substring(last_index, element_string.length - 1);
