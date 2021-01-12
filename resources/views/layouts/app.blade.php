@@ -25,6 +25,7 @@
 
     <link rel="stylesheet" href="{{ asset("css/trix.min.css") }}"/>
     <script src="{{ asset("js/trix.min.js") }}"></script>
+    <link rel="stylesheet" href="{{ asset("css/custom-trix.css") }}">
 </head>
 <body>
 <div id="app">
