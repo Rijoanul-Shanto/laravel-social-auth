@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="{{ asset("css/custom-trix.css") }}">
 </head>
 <body>
+<script async defer src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2"></script>
 <div id="app">
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
         <div class="container">
